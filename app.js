@@ -1,14 +1,14 @@
 // requirements
 var express = require('express'),
-app = express();
+  app = express();
 
 app.set('view engine', 'ejs');
 
 var vegetables = [
-            'Carrots',
-            'Cucumber',
-            'Peas'
-            ];
+  'Carrots',
+  'Cucumber',
+  'Peas'
+];
 
 // a 'GET' request to '/' will run the function below
 // app.get('/', function (req, res) {
@@ -22,7 +22,7 @@ app.get('/vegetables', function (req, res) {
 });
 
 app.get('/hello/:name', function (req, res) {
-  res.send( 'Hello, ' + req.params.name);
+  res.send('Hello, ' + req.params.name);
 });
 
 app.get('/', function (req, res) {
