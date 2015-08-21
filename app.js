@@ -27,7 +27,7 @@ app.get('/hello/:name', function (req, res) {
 
 app.get('/', function (req, res) {
   // use res.render
-  res.render('index', {name: 'Elie'});
+  res.render('index', {name: 'Ethan'});
 });
 
 app.get('/hi', function (req, res) {
@@ -38,4 +38,39 @@ app.get('/hi', function (req, res) {
 // start the server
 app.listen(3000, function () {
   console.log('Go to localhost:3000/');
+});
+
+// express calculator
+// adding
+app.get('/add/:num1/:num2', function (req, res) {
+  // res.render('index', {name: Number(req.params.num1) + Number(req.params.num2)});
+  res.send('The total is ' + (Number(req.params.num1) + Number(req.params.num2)));
+});
+// subtracting
+app.get('/sub/:num1/:num2', function (req, res) {
+  res.send('The total is ' + (Number(req.params.num1) - Number(req.params.num2)));
+});
+// multiplying
+app.get('/mult/:num1/:num2', function (req, res) {
+  res.send('The total is ' + (Number(req.params.num1) * Number(req.params.num2)));
+});
+// dividing
+app.get('/div/:num1/:num2', function (req, res) {
+  res.send('The total is ' + (Number(req.params.num1) / Number(req.params.num2)));
+});
+
+// one route which does each operator.
+app.get('/math/:num1/:num2', function (req, res) {
+  res.send('The added total is ' +
+  (Number(req.params.num1) +
+  Number(req.params.num2)) + '<br>' +
+  'The subtracted total is ' +
+  (Number(req.params.num1) -
+  Number(req.params.num2)) + '<br>' +
+  'The multiplied total is ' +
+  (Number(req.params.num1) *
+  Number(req.params.num2)) + '<br>' +
+  'The divided total is ' +
+  (Number(req.params.num1) /
+  Number(req.params.num2)));
 });
